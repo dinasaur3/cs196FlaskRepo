@@ -1,1 +1,1 @@
-# cs196FlaskRepo
+cs196 Web distribution project
