@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO, send, join_room, leave_room
 
 app = Flask(__name__)
-
+@app.route('/')
 @app.route('/about')
 def about():
     return render_template('About.html')
@@ -17,7 +17,8 @@ def contact():
         db_session.add(user)
         contact = request.form['Name']
         flash('Thank you')
-        return redirect(url_for('login'))
+        return redirect(url_for('Name'))
+        #return "Name: " + contact
     return render_template('contact.html', form=form)
 
 if __name__ == '__main__':
