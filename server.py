@@ -2,18 +2,24 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO, send, join_room, leave_room
 
 app = Flask(__name__)
-app.config['SECRET KEY'] = '123'
-app.debug = True
-socketio = SocketIO(app)
 
 
 @app.route('/')
-def index():
-    return render_template("generatecode.html")
+def home():
+    return render_template("Home.html")
 
-@app.route('/test')
-def foo():
-    return render_template("test.html")
+@app.route('/about')
+def about():
+    return render_template("About.html")
 
-if __name__ == "__main__":
-    socketio.run(app)
+@app.route('/contact', methods = ['POST'])
+def contact():
+
+    if request.method == 'POST':
+
+    contact = request.form['Name']
+    
+    return "Name: " + contact
+
+if __name__ == '__main__':
+    app.run(debug = True)
