@@ -22,7 +22,7 @@ def contact():
                     form.password.data)
         #session sets the borders of a conversation with the database.            
         db_session.add(user)
-        flash('Thanks you')
+        flash('Thank you')
         return redirect(url_for('login'))
     return render_template('contact.html', form=form)
 
